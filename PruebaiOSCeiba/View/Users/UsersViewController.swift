@@ -13,12 +13,39 @@ class UsersViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let cellId = "userCell"
+    var viewModel: [UserViewModel] = []
+    var viewModelFiltered: [UserViewModel] = []
+    let searchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadUsers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        self.setupTableView()
-        self.setupNavbar()
+        setupTableView()
+        setupNavbar()
+        setupSearchController()
+    }
+    
+    private func loadUsers () {
+        UserRepository().getUsers { (response) in
+            switch response {
+            case .success(let result):
+                let usersResult = result as! [User]
+                self.viewModel = usersResult.map {
+                    return UserViewModel(user: $0)
+                }
+                break
+            case .failure:
+                break
+            }
+            DispatchQueue.main.sync {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     private func setupNavbar () {
@@ -27,20 +54,32 @@ class UsersViewController: UIViewController {
     }
     
     private func setupTableView () {
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: cellId)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: cellId)
     }
     
+    private func setupSearchController () {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
 }
 
+//MARK: - TableViewDelegate
 extension UsersViewController: UITableViewDelegate {
     
 }
 
+//MARK: - TableViewDataSource
 extension UsersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        let count = !isFiltering ? viewModel.count : viewModelFiltered.count
+        
+        
+        return count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -50,15 +89,32 @@ extension UsersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! UserCell
         
+        let user = !isFiltering ? viewModel[indexPath.row] : viewModelFiltered[indexPath.row]
+        
+        cell.nameLabel.text = user.name
+        cell.phoneNumberLabel.text = user.phoneNumber
+        cell.emailLabel.text = user.email
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let story = UIStoryboard(name: "Posts", bundle: nil)
-        let vc = story.instantiateViewController(withIdentifier: "PostsViewController") as! PostsViewController
+        let viewController = story.instantiateViewController(withIdentifier: "PostsViewController") as! PostsViewController
         
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
+}
+
+
+// MARK: - Extension of SearchController
+extension UsersViewController: UISearchResultsUpdating {
     
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        if let searchText = searchBar.text {
+            filterContentForSearchText(searchText)
+        }
+    }
     
 }

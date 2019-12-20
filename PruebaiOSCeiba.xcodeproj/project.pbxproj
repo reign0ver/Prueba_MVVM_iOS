@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		FB776F0623ABC74B006BBA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F0523ABC74B006BBA8E /* AppDelegate.swift */; };
 		FB776F0823ABC74B006BBA8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F0723ABC74B006BBA8E /* SceneDelegate.swift */; };
-		FB776F0A23ABC74B006BBA8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F0923ABC74B006BBA8E /* ViewController.swift */; };
-		FB776F0D23ABC74B006BBA8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB776F0B23ABC74B006BBA8E /* Main.storyboard */; };
 		FB776F1023ABC74B006BBA8E /* PruebaiOSCeiba.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB776F0E23ABC74B006BBA8E /* PruebaiOSCeiba.xcdatamodeld */; };
 		FB776F1223ABC756006BBA8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB776F1123ABC756006BBA8E /* Assets.xcassets */; };
 		FB776F1523ABC756006BBA8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB776F1323ABC756006BBA8E /* LaunchScreen.storyboard */; };
@@ -24,6 +22,12 @@
 		FB776F4F23AC0D46006BBA8E /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB776F4D23AC0D46006BBA8E /* UserCell.xib */; };
 		FB776F5323AC5D3B006BBA8E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F5223AC5D3B006BBA8E /* User.swift */; };
 		FB776F5823AC6D40006BBA8E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F5723AC6D40006BBA8E /* Post.swift */; };
+		FB776F5B23AC728E006BBA8E /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F5A23AC728E006BBA8E /* EndPoints.swift */; };
+		FB776F5D23AC9263006BBA8E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F5C23AC9263006BBA8E /* UserRepository.swift */; };
+		FB776F5F23AC9749006BBA8E /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F5E23AC9749006BBA8E /* AppConstants.swift */; };
+		FB776F6123AC98AB006BBA8E /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F6023AC98AB006BBA8E /* BaseService.swift */; };
+		FB776F6323AD343F006BBA8E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F6223AD343F006BBA8E /* UserViewModel.swift */; };
+		FB776F6523AD50E9006BBA8E /* UsersControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F6423AD50E9006BBA8E /* UsersControllerHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +51,6 @@
 		FB776F0223ABC74B006BBA8E /* PruebaiOSCeiba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PruebaiOSCeiba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB776F0523ABC74B006BBA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB776F0723ABC74B006BBA8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FB776F0923ABC74B006BBA8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FB776F0C23ABC74B006BBA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB776F0F23ABC74B006BBA8E /* PruebaiOSCeiba.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PruebaiOSCeiba.xcdatamodel; sourceTree = "<group>"; };
 		FB776F1123ABC756006BBA8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB776F1423ABC756006BBA8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,6 +69,12 @@
 		FB776F4D23AC0D46006BBA8E /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		FB776F5223AC5D3B006BBA8E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB776F5723AC6D40006BBA8E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		FB776F5A23AC728E006BBA8E /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		FB776F5C23AC9263006BBA8E /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		FB776F5E23AC9749006BBA8E /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		FB776F6023AC98AB006BBA8E /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		FB776F6223AD343F006BBA8E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		FB776F6423AD50E9006BBA8E /* UsersControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersControllerHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,16 +125,11 @@
 		FB776F0423ABC74B006BBA8E /* PruebaiOSCeiba */ = {
 			isa = PBXGroup;
 			children = (
+				FB776F5923AC727A006BBA8E /* Service */,
 				FB776F4623AC0B2F006BBA8E /* App */,
 				FB776F3B23AC0618006BBA8E /* Model */,
 				FB776F3A23ABF8EE006BBA8E /* ViewModel */,
 				FB776F3823ABF8D6006BBA8E /* View */,
-				FB776F0523ABC74B006BBA8E /* AppDelegate.swift */,
-				FB776F0723ABC74B006BBA8E /* SceneDelegate.swift */,
-				FB776F0923ABC74B006BBA8E /* ViewController.swift */,
-				FB776F0B23ABC74B006BBA8E /* Main.storyboard */,
-				FB776F1123ABC756006BBA8E /* Assets.xcassets */,
-				FB776F1323ABC756006BBA8E /* LaunchScreen.storyboard */,
 				FB776F1623ABC756006BBA8E /* Info.plist */,
 				FB776F0E23ABC74B006BBA8E /* PruebaiOSCeiba.xcdatamodeld */,
 			);
@@ -154,6 +157,7 @@
 		FB776F3823ABF8D6006BBA8E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB776F6623AD582F006BBA8E /* EmptyState */,
 				FB776F4123AC0ADE006BBA8E /* Posts */,
 				FB776F4023AC0AD0006BBA8E /* Users */,
 			);
@@ -163,6 +167,7 @@
 		FB776F3A23ABF8EE006BBA8E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FB776F6223AD343F006BBA8E /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				FB776F4723AC0BA3006BBA8E /* UserCell */,
 				FB776F3C23AC0AB4006BBA8E /* Users.storyboard */,
 				FB776F3E23AC0AC6006BBA8E /* UsersViewController.swift */,
+				FB776F6423AD50E9006BBA8E /* UsersControllerHelper.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -198,6 +204,11 @@
 		FB776F4623AC0B2F006BBA8E /* App */ = {
 			isa = PBXGroup;
 			children = (
+				FB776F0523ABC74B006BBA8E /* AppDelegate.swift */,
+				FB776F0723ABC74B006BBA8E /* SceneDelegate.swift */,
+				FB776F1123ABC756006BBA8E /* Assets.xcassets */,
+				FB776F1323ABC756006BBA8E /* LaunchScreen.storyboard */,
+				FB776F5E23AC9749006BBA8E /* AppConstants.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -223,8 +234,25 @@
 		FB776F5123AC5388006BBA8E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				FB776F5C23AC9263006BBA8E /* UserRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		FB776F5923AC727A006BBA8E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FB776F5A23AC728E006BBA8E /* EndPoints.swift */,
+				FB776F6023AC98AB006BBA8E /* BaseService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FB776F6623AD582F006BBA8E /* EmptyState */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EmptyState;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +364,6 @@
 				FB776F4F23AC0D46006BBA8E /* UserCell.xib in Resources */,
 				FB776F3D23AC0AB5006BBA8E /* Users.storyboard in Resources */,
 				FB776F1223ABC756006BBA8E /* Assets.xcassets in Resources */,
-				FB776F0D23ABC74B006BBA8E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,12 +388,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB776F5D23AC9263006BBA8E /* UserRepository.swift in Sources */,
 				FB776F4523AC0B0B006BBA8E /* PostsViewController.swift in Sources */,
-				FB776F0A23ABC74B006BBA8E /* ViewController.swift in Sources */,
 				FB776F1023ABC74B006BBA8E /* PruebaiOSCeiba.xcdatamodeld in Sources */,
+				FB776F5F23AC9749006BBA8E /* AppConstants.swift in Sources */,
+				FB776F6523AD50E9006BBA8E /* UsersControllerHelper.swift in Sources */,
 				FB776F3F23AC0AC6006BBA8E /* UsersViewController.swift in Sources */,
 				FB776F5323AC5D3B006BBA8E /* User.swift in Sources */,
 				FB776F0623ABC74B006BBA8E /* AppDelegate.swift in Sources */,
+				FB776F5B23AC728E006BBA8E /* EndPoints.swift in Sources */,
+				FB776F6123AC98AB006BBA8E /* BaseService.swift in Sources */,
+				FB776F6323AD343F006BBA8E /* UserViewModel.swift in Sources */,
 				FB776F5823AC6D40006BBA8E /* Post.swift in Sources */,
 				FB776F0823ABC74B006BBA8E /* SceneDelegate.swift in Sources */,
 				FB776F4E23AC0D46006BBA8E /* UserCell.swift in Sources */,
@@ -405,14 +437,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FB776F0B23ABC74B006BBA8E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB776F0C23ABC74B006BBA8E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FB776F1323ABC756006BBA8E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

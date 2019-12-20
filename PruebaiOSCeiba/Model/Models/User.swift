@@ -13,7 +13,8 @@ import Foundation
  and all the entities associated to it
  */
 
-// MARK: UserEntity
+
+// MARK: - UserEntity
 struct User: Decodable {
     let userId: Int
     let name: String
@@ -49,7 +50,8 @@ struct User: Decodable {
     }
 }
 
-//MARK: AddressEntity
+
+//MARK: - AddressEntity
 struct Address: Decodable {
     let street: String
     let suite: String
@@ -76,7 +78,8 @@ struct Address: Decodable {
     }
 }
 
-//MARK: Geo Entity
+
+//MARK: - Geo Entity
 struct Coordinates: Decodable {
     let latitude: String
     let longitude: String
@@ -94,7 +97,8 @@ struct Coordinates: Decodable {
     }
 }
 
-//MARK: CompanyEntity
+
+//MARK:  - CompanyEntity
 struct Company: Decodable {
     let name: String
     let catchPhrase: String
