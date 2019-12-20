@@ -16,6 +16,14 @@
 		FB776F1523ABC756006BBA8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB776F1323ABC756006BBA8E /* LaunchScreen.storyboard */; };
 		FB776F2023ABC757006BBA8E /* PruebaiOSCeibaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F1F23ABC757006BBA8E /* PruebaiOSCeibaTests.swift */; };
 		FB776F2B23ABC757006BBA8E /* PruebaiOSCeibaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F2A23ABC757006BBA8E /* PruebaiOSCeibaUITests.swift */; };
+		FB776F3D23AC0AB5006BBA8E /* Users.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB776F3C23AC0AB4006BBA8E /* Users.storyboard */; };
+		FB776F3F23AC0AC6006BBA8E /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F3E23AC0AC6006BBA8E /* UsersViewController.swift */; };
+		FB776F4323AC0AF5006BBA8E /* Posts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB776F4223AC0AF5006BBA8E /* Posts.storyboard */; };
+		FB776F4523AC0B0B006BBA8E /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F4423AC0B0B006BBA8E /* PostsViewController.swift */; };
+		FB776F4E23AC0D46006BBA8E /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F4C23AC0D46006BBA8E /* UserCell.swift */; };
+		FB776F4F23AC0D46006BBA8E /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB776F4D23AC0D46006BBA8E /* UserCell.xib */; };
+		FB776F5323AC5D3B006BBA8E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F5223AC5D3B006BBA8E /* User.swift */; };
+		FB776F5823AC6D40006BBA8E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F5723AC6D40006BBA8E /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +59,14 @@
 		FB776F2623ABC757006BBA8E /* PruebaiOSCeibaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PruebaiOSCeibaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB776F2A23ABC757006BBA8E /* PruebaiOSCeibaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaiOSCeibaUITests.swift; sourceTree = "<group>"; };
 		FB776F2C23ABC757006BBA8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB776F3C23AC0AB4006BBA8E /* Users.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Users.storyboard; sourceTree = "<group>"; };
+		FB776F3E23AC0AC6006BBA8E /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		FB776F4223AC0AF5006BBA8E /* Posts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Posts.storyboard; sourceTree = "<group>"; };
+		FB776F4423AC0B0B006BBA8E /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		FB776F4C23AC0D46006BBA8E /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		FB776F4D23AC0D46006BBA8E /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		FB776F5223AC5D3B006BBA8E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FB776F5723AC6D40006BBA8E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +117,7 @@
 		FB776F0423ABC74B006BBA8E /* PruebaiOSCeiba */ = {
 			isa = PBXGroup;
 			children = (
+				FB776F4623AC0B2F006BBA8E /* App */,
 				FB776F3B23AC0618006BBA8E /* Model */,
 				FB776F3A23ABF8EE006BBA8E /* ViewModel */,
 				FB776F3823ABF8D6006BBA8E /* View */,
@@ -137,6 +154,8 @@
 		FB776F3823ABF8D6006BBA8E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB776F4123AC0ADE006BBA8E /* Posts */,
+				FB776F4023AC0AD0006BBA8E /* Users */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,8 +170,61 @@
 		FB776F3B23AC0618006BBA8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FB776F5123AC5388006BBA8E /* Repository */,
+				FB776F5023AC5382006BBA8E /* Models */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FB776F4023AC0AD0006BBA8E /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				FB776F4723AC0BA3006BBA8E /* UserCell */,
+				FB776F3C23AC0AB4006BBA8E /* Users.storyboard */,
+				FB776F3E23AC0AC6006BBA8E /* UsersViewController.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		FB776F4123AC0ADE006BBA8E /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				FB776F4223AC0AF5006BBA8E /* Posts.storyboard */,
+				FB776F4423AC0B0B006BBA8E /* PostsViewController.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		FB776F4623AC0B2F006BBA8E /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FB776F4723AC0BA3006BBA8E /* UserCell */ = {
+			isa = PBXGroup;
+			children = (
+				FB776F4C23AC0D46006BBA8E /* UserCell.swift */,
+				FB776F4D23AC0D46006BBA8E /* UserCell.xib */,
+			);
+			path = UserCell;
+			sourceTree = "<group>";
+		};
+		FB776F5023AC5382006BBA8E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FB776F5223AC5D3B006BBA8E /* User.swift */,
+				FB776F5723AC6D40006BBA8E /* Post.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FB776F5123AC5388006BBA8E /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +332,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB776F1523ABC756006BBA8E /* LaunchScreen.storyboard in Resources */,
+				FB776F4323AC0AF5006BBA8E /* Posts.storyboard in Resources */,
+				FB776F4F23AC0D46006BBA8E /* UserCell.xib in Resources */,
+				FB776F3D23AC0AB5006BBA8E /* Users.storyboard in Resources */,
 				FB776F1223ABC756006BBA8E /* Assets.xcassets in Resources */,
 				FB776F0D23ABC74B006BBA8E /* Main.storyboard in Resources */,
 			);
@@ -286,10 +361,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB776F4523AC0B0B006BBA8E /* PostsViewController.swift in Sources */,
 				FB776F0A23ABC74B006BBA8E /* ViewController.swift in Sources */,
 				FB776F1023ABC74B006BBA8E /* PruebaiOSCeiba.xcdatamodeld in Sources */,
+				FB776F3F23AC0AC6006BBA8E /* UsersViewController.swift in Sources */,
+				FB776F5323AC5D3B006BBA8E /* User.swift in Sources */,
 				FB776F0623ABC74B006BBA8E /* AppDelegate.swift in Sources */,
+				FB776F5823AC6D40006BBA8E /* Post.swift in Sources */,
 				FB776F0823ABC74B006BBA8E /* SceneDelegate.swift in Sources */,
+				FB776F4E23AC0D46006BBA8E /* UserCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
