@@ -22,10 +22,6 @@ class UsersViewController: UIViewController, UserViewModelDelegate {
         setupTableView()
         setupSearchController()
         loadUsers()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         setupNavbar()
     }
     
@@ -41,7 +37,7 @@ class UsersViewController: UIViewController, UserViewModelDelegate {
     }
     
     private func setupNavbar () {
-        self.navigationItem.title = "Usuarios"
+        self.navigationItem.title = viewModel.navigationTitle
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -63,9 +59,10 @@ class UsersViewController: UIViewController, UserViewModelDelegate {
 //MARK: - TableViewDelegate
 extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let userSelected = !isFiltering ? viewModel.userView[indexPath.row] : viewModel.userViewFiltered[indexPath.row]
         let story = UIStoryboard(name: "Posts", bundle: nil)
         let viewController = story.instantiateViewController(withIdentifier: "PostsViewController") as! PostsViewController
-        viewController.viewModel.userView = viewModel.userView[indexPath.row]
+        viewController.viewModel.userView = userSelected
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
@@ -77,11 +74,10 @@ extension UsersViewController: UITableViewDataSource {
         let count = !isFiltering ? viewModel.userView.count : viewModel.userViewFiltered.count
         
         if count == 0 {
-            tableView.setEmptyMessage("List is empty")
+            tableView.setEmptyMessage(viewModel.emptyListMessage)
         } else {
             tableView.restore()
         }
-        
         return count
     }
     
@@ -91,16 +87,10 @@ extension UsersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.cellId) as! UserCell
-        
-        let user = !isFiltering ? viewModel.userView[indexPath.row] : viewModel.userViewFiltered[indexPath.row]
-        
-        cell.nameLabel.text = user.name
-        cell.phoneNumberLabel.text = user.phoneNumber
-        cell.emailLabel.text = user.email
-        
+        let userView = !isFiltering ? viewModel.userView[indexPath.row] : viewModel.userViewFiltered[indexPath.row]
+        cell.configureCell(user: userView)
         return cell
     }
-    
 }
 
 

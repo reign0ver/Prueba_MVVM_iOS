@@ -34,19 +34,16 @@ class PostsViewController: UIViewController, PostViewModelDelegate {
             self.tableView.reloadData()
         }
     }
-
     
     private func loadUserPosts () {
         viewModel.getPostsByUser()
     }
     
-    //Pendiente refactor esta función
     private func setupNavbar () {
         navigationItem.title = viewModel.userView?.name
-        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
-    func setupUserInformation () {
+    private func setupUserInformation () {
         phoneNumberLabel.text = viewModel.userView?.phoneNumber
         emailLabel.text = viewModel.userView?.email
     }
@@ -54,7 +51,7 @@ class PostsViewController: UIViewController, PostViewModelDelegate {
 }
 
 extension PostsViewController: UITableViewDelegate {
-    
+    //doSomething
 }
 
 extension PostsViewController: UITableViewDataSource {
@@ -64,10 +61,16 @@ extension PostsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.cellId) as! PostCell
-        cell.postTitleLabel.text = viewModel.postView[indexPath.row].title
-        cell.postBodyLabel.text = viewModel.postView[indexPath.row].text
+        cell.configureCell(viewModel: viewModel, indexPath.row)
         return cell
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "User Posts"
+    }
     
 }

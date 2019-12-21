@@ -21,4 +21,8 @@ class PostCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func configureCell (viewModel: PostViewModel, _ indexPathRow: Int) {
+        postTitleLabel.text = viewModel.postView[indexPathRow].title
+        postBodyLabel.text = viewModel.postView[indexPathRow].text
+    }
 }

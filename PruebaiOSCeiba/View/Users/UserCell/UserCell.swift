@@ -15,13 +15,16 @@ class UserCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.nameLabel.text = "Leanne Graham"
-//        self.phoneNumberLabel.text = "319-200-3030"
-//        self.emailLabel.text = "dontblameme@ola.co"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func configureCell (user: UserView) {
+        self.nameLabel.text = user.name
+        self.phoneNumberLabel.text = user.phoneNumber
+        self.emailLabel.text = user.email
     }
     
 }

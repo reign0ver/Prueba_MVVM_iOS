@@ -32,6 +32,9 @@ protocol UserViewModelDelegate: class {
 class UserViewModel {
     
     let cellId = "userCell"
+    let navigationTitle = "Users"
+    let emptyListMessage = "List is empty"
+    
     var userView: [UserView] = []
     var userViewFiltered: [UserView] = []
     let repo = UserRepository()
