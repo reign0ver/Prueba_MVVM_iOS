@@ -28,10 +28,8 @@ class UsersViewController: UIViewController, UserViewModelDelegate {
     
     //MARK: UserViewModel Delegate
     func reloadTable() {
-        DispatchQueue.main.sync {
-            tableView.reloadData()
-            self.hideLoading()
-        }
+        tableView.reloadData()
+        self.hideLoading()
     }
     
     private func loadUsers () {

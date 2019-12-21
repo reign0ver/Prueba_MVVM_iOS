@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum ServiceResponse {
     case success(response: Data)
@@ -19,36 +20,25 @@ typealias RequestCompletion = ( (_ response: ServiceResponse) -> Void )
 class BaseService {
     
     func sendRequest (endPoint: String, completion: @escaping RequestCompletion) {
-        let session = URLSession(configuration: .default)
-        var dataTask: URLSessionDataTask?
+        let url = AppConstants.baseUrl + endPoint
         
-        guard let url = URL(string: AppConstants.baseUrl + endPoint) else { return }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "GET"
-        
-        dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
-            if let error = error {
+        AF.request(url, method: .get).response { (response) in
+            if let error = response.error {
                 print("Failed to fetch users: ", error.localizedDescription)
                 completion(.failure)
                 return
             }
             
-            if let response = response as? HTTPURLResponse {
-                if response.statusCode == 200 {
-                    if let data = data {
-                        completion(.success(response: data))
-                    } else {
-                        completion(.responseUnsuccessfull(code: response.statusCode))
-                    }
+            if let response = response.response {
+                if response.statusCode != 200 {
+                    completion(.responseUnsuccessfull(code: response.statusCode))
                 }
             }
+            
+            if let data = response.data {
+                completion(.success(response: data))
+            }
         }
-        dataTask?.resume()
-    }
-    
-    func sendRequest2 (endPoint: String, completion: @escaping RequestCompletion) {
-        
     }
     
 }

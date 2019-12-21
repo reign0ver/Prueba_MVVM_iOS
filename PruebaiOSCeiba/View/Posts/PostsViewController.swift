@@ -30,10 +30,8 @@ class PostsViewController: UIViewController, PostViewModelDelegate {
     
     //MARK: PostViewModel Delegate
     func reloadTable() {
-        DispatchQueue.main.sync {
-            self.tableView.reloadData()
-            self.hideLoading()
-        }
+        self.tableView.reloadData()
+        self.hideLoading()
     }
     
     private func loadUserPosts () {

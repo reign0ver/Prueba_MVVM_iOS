@@ -15,7 +15,7 @@ class PostRepository {
     func getPostsById (userId: Int, completion: @escaping ModelCompletion) {
         let endpoint = PostEndpoints.getPostsById.rawValue + "\(userId)"
         
-        networkProvider.sendRequest(endPoint: endpoint) { (response) in
+        networkProvider.sendRequest (endPoint: endpoint) { (response) in
             switch response {
             case .success(let result):
                 do {
