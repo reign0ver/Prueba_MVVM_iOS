@@ -19,15 +19,15 @@ class UsersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupTableView()
+        setupSearchController()
         loadUsers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        setupTableView()
         setupNavbar()
-        setupSearchController()
     }
     
     private func loadUsers () {
@@ -70,7 +70,13 @@ class UsersViewController: UIViewController {
 
 //MARK: - TableViewDelegate
 extension UsersViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let story = UIStoryboard(name: "Posts", bundle: nil)
+        let viewController = story.instantiateViewController(withIdentifier: "PostsViewController") as! PostsViewController
+        viewController.userViewModel = viewModel[indexPath.row]
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 //MARK: - TableViewDataSource
@@ -78,6 +84,11 @@ extension UsersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = !isFiltering ? viewModel.count : viewModelFiltered.count
         
+        if count == 0 {
+            tableView.setEmptyMessage("List is empty")
+        } else {
+            tableView.restore()
+        }
         
         return count
     }
@@ -98,12 +109,6 @@ extension UsersViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let story = UIStoryboard(name: "Posts", bundle: nil)
-        let viewController = story.instantiateViewController(withIdentifier: "PostsViewController") as! PostsViewController
-        
-        self.navigationController?.pushViewController(viewController, animated: true)
-    }
 }
 
 

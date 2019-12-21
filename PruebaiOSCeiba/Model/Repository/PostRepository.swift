@@ -1,5 +1,5 @@
 //
-//  UserRepository.swift
+//  PostRepository.swift
 //  PruebaiOSCeiba
 //
 //  Created by Andrés Carrillo on 20/12/19.
@@ -8,22 +8,16 @@
 
 import Foundation
 
-enum ModelResponse <T> {
-    case success(result: T)
-    case failure
-}
-
-typealias ModelCompletion = ( (_ response: ModelResponse<Any>) -> Void )
-
-class UserRepository {
+class PostRepository {
     
-    func getUsers (completion: @escaping ModelCompletion) {
-        BaseService.shared.sendRequest(endPoint: UserEndpoints.getUsers.rawValue) { (response) in
+    func getPostsById (userId: Int, completion: @escaping ModelCompletion) {
+        let endpoint = PostEndpoints.getPostsById.rawValue + "\(userId)"
+        BaseService.shared.sendRequest(endPoint: endpoint) { (response) in
             switch response {
             case .success(let result):
                 do {
-                    let users = try JSONDecoder().decode([User].self, from: result)
-                    completion(.success(result: users))
+                    let posts = try JSONDecoder().decode([Post].self, from: result)
+                    completion(.success(result: posts))
                 } catch let err {
                     print("Error while parsing the data: \(err.localizedDescription)")
                     completion(.failure)
@@ -38,4 +32,5 @@ class UserRepository {
             }
         }
     }
+    
 }

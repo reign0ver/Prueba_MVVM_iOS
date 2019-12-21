@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB5C745123ADA19400775BA0 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5C744F23ADA19400775BA0 /* PostCell.swift */; };
+		FB5C745223ADA19400775BA0 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5C745023ADA19400775BA0 /* PostCell.xib */; };
 		FB776F0623ABC74B006BBA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F0523ABC74B006BBA8E /* AppDelegate.swift */; };
 		FB776F0823ABC74B006BBA8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F0723ABC74B006BBA8E /* SceneDelegate.swift */; };
 		FB776F1023ABC74B006BBA8E /* PruebaiOSCeiba.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB776F0E23ABC74B006BBA8E /* PruebaiOSCeiba.xcdatamodeld */; };
@@ -28,6 +30,9 @@
 		FB776F6123AC98AB006BBA8E /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F6023AC98AB006BBA8E /* BaseService.swift */; };
 		FB776F6323AD343F006BBA8E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F6223AD343F006BBA8E /* UserViewModel.swift */; };
 		FB776F6523AD50E9006BBA8E /* UsersControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F6423AD50E9006BBA8E /* UsersControllerHelper.swift */; };
+		FB776F6D23AD5E2A006BBA8E /* ExtensionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F6C23AD5E2A006BBA8E /* ExtensionHelpers.swift */; };
+		FB8F24A423AD79470032A600 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F24A323AD79470032A600 /* PostRepository.swift */; };
+		FB8F24A623AD7BA70032A600 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8F24A523AD7BA70032A600 /* PostViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB5C744F23ADA19400775BA0 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		FB5C745023ADA19400775BA0 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		FB776F0223ABC74B006BBA8E /* PruebaiOSCeiba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PruebaiOSCeiba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB776F0523ABC74B006BBA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB776F0723ABC74B006BBA8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +82,9 @@
 		FB776F6023AC98AB006BBA8E /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		FB776F6223AD343F006BBA8E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		FB776F6423AD50E9006BBA8E /* UsersControllerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersControllerHelper.swift; sourceTree = "<group>"; };
+		FB776F6C23AD5E2A006BBA8E /* ExtensionHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHelpers.swift; sourceTree = "<group>"; };
+		FB8F24A323AD79470032A600 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
+		FB8F24A523AD7BA70032A600 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB5C744E23ADA17500775BA0 /* PostCell */ = {
+			isa = PBXGroup;
+			children = (
+				FB5C744F23ADA19400775BA0 /* PostCell.swift */,
+				FB5C745023ADA19400775BA0 /* PostCell.xib */,
+			);
+			path = PostCell;
+			sourceTree = "<group>";
+		};
 		FB776EF923ABC74A006BBA8E = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +144,7 @@
 		FB776F0423ABC74B006BBA8E /* PruebaiOSCeiba */ = {
 			isa = PBXGroup;
 			children = (
+				FB776F6B23AD5E02006BBA8E /* Common */,
 				FB776F5923AC727A006BBA8E /* Service */,
 				FB776F4623AC0B2F006BBA8E /* App */,
 				FB776F3B23AC0618006BBA8E /* Model */,
@@ -157,7 +177,6 @@
 		FB776F3823ABF8D6006BBA8E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FB776F6623AD582F006BBA8E /* EmptyState */,
 				FB776F4123AC0ADE006BBA8E /* Posts */,
 				FB776F4023AC0AD0006BBA8E /* Users */,
 			);
@@ -168,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				FB776F6223AD343F006BBA8E /* UserViewModel.swift */,
+				FB8F24A523AD7BA70032A600 /* PostViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -195,6 +215,7 @@
 		FB776F4123AC0ADE006BBA8E /* Posts */ = {
 			isa = PBXGroup;
 			children = (
+				FB5C744E23ADA17500775BA0 /* PostCell */,
 				FB776F4223AC0AF5006BBA8E /* Posts.storyboard */,
 				FB776F4423AC0B0B006BBA8E /* PostsViewController.swift */,
 			);
@@ -208,7 +229,6 @@
 				FB776F0723ABC74B006BBA8E /* SceneDelegate.swift */,
 				FB776F1123ABC756006BBA8E /* Assets.xcassets */,
 				FB776F1323ABC756006BBA8E /* LaunchScreen.storyboard */,
-				FB776F5E23AC9749006BBA8E /* AppConstants.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -235,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				FB776F5C23AC9263006BBA8E /* UserRepository.swift */,
+				FB8F24A323AD79470032A600 /* PostRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -248,11 +269,13 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		FB776F6623AD582F006BBA8E /* EmptyState */ = {
+		FB776F6B23AD5E02006BBA8E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FB776F5E23AC9749006BBA8E /* AppConstants.swift */,
+				FB776F6C23AD5E2A006BBA8E /* ExtensionHelpers.swift */,
 			);
-			path = EmptyState;
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB776F1523ABC756006BBA8E /* LaunchScreen.storyboard in Resources */,
+				FB5C745223ADA19400775BA0 /* PostCell.xib in Resources */,
 				FB776F4323AC0AF5006BBA8E /* Posts.storyboard in Resources */,
 				FB776F4F23AC0D46006BBA8E /* UserCell.xib in Resources */,
 				FB776F3D23AC0AB5006BBA8E /* Users.storyboard in Resources */,
@@ -393,6 +417,9 @@
 				FB776F1023ABC74B006BBA8E /* PruebaiOSCeiba.xcdatamodeld in Sources */,
 				FB776F5F23AC9749006BBA8E /* AppConstants.swift in Sources */,
 				FB776F6523AD50E9006BBA8E /* UsersControllerHelper.swift in Sources */,
+				FB5C745123ADA19400775BA0 /* PostCell.swift in Sources */,
+				FB8F24A423AD79470032A600 /* PostRepository.swift in Sources */,
+				FB8F24A623AD7BA70032A600 /* PostViewModel.swift in Sources */,
 				FB776F3F23AC0AC6006BBA8E /* UsersViewController.swift in Sources */,
 				FB776F5323AC5D3B006BBA8E /* User.swift in Sources */,
 				FB776F0623ABC74B006BBA8E /* AppDelegate.swift in Sources */,
@@ -401,6 +428,7 @@
 				FB776F6323AD343F006BBA8E /* UserViewModel.swift in Sources */,
 				FB776F5823AC6D40006BBA8E /* Post.swift in Sources */,
 				FB776F0823ABC74B006BBA8E /* SceneDelegate.swift in Sources */,
+				FB776F6D23AD5E2A006BBA8E /* ExtensionHelpers.swift in Sources */,
 				FB776F4E23AC0D46006BBA8E /* UserCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
