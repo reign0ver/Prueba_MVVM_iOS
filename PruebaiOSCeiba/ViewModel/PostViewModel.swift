@@ -8,10 +8,9 @@
 
 import Foundation
 
-struct PostViewModel {
+struct PostView {
     let title: String
     let text: String
-//    let user: User
     
     init(post: Post) {
         self.title = post.title
@@ -19,3 +18,37 @@ struct PostViewModel {
     }
     
 }
+
+protocol PostViewModelDelegate {
+    func reloadTable()
+}
+
+class PostViewModel {
+    
+    let cellId = "postCell"
+    var userView: UserView?
+    var postView: [PostView] = []
+    var delegate: PostViewModelDelegate?
+    
+    func getPostsByUser () {
+        PostRepository().getPostsById(userId: userView!.userId, completion: { (response) in
+            switch response {
+            case .success(let result):
+                let postsResult = result as! [Post]
+                self.mapPostsIntoPostsView(postsResult: postsResult)
+                break
+            case .failure:
+                break
+            }
+            self.delegate?.reloadTable()
+        })
+    }
+    
+    func mapPostsIntoPostsView (postsResult: [Post]) {
+        self.postView = postsResult.map {
+            return PostView(post: $0)
+        }
+    }
+    
+}
+

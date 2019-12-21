@@ -10,9 +10,12 @@ import Foundation
 
 class PostRepository {
     
+    let networkProvider = BaseService()
+    
     func getPostsById (userId: Int, completion: @escaping ModelCompletion) {
         let endpoint = PostEndpoints.getPostsById.rawValue + "\(userId)"
-        BaseService.shared.sendRequest(endPoint: endpoint) { (response) in
+        
+        networkProvider.sendRequest(endPoint: endpoint) { (response) in
             switch response {
             case .success(let result):
                 do {

@@ -8,18 +8,17 @@
 
 import UIKit
 
-class UsersViewController: UIViewController {
+class UsersViewController: UIViewController, UserViewModelDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let cellId = "userCell"
-    var viewModel: [UserViewModel] = []
-    var viewModelFiltered: [UserViewModel] = []
+    let viewModel = UserViewModel()
     let searchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.delegate = self
         setupTableView()
         setupSearchController()
         loadUsers()
@@ -30,22 +29,15 @@ class UsersViewController: UIViewController {
         setupNavbar()
     }
     
-    private func loadUsers () {
-        UserRepository().getUsers { (response) in
-            switch response {
-            case .success(let result):
-                let usersResult = result as! [User]
-                self.viewModel = usersResult.map {
-                    return UserViewModel(user: $0)
-                }
-                break
-            case .failure:
-                break
-            }
-            DispatchQueue.main.sync {
-                self.tableView.reloadData()
-            }
+    //MARK: UserViewModel Delegate
+    func reloadTable() {
+        DispatchQueue.main.sync {
+            tableView.reloadData()
         }
+    }
+    
+    private func loadUsers () {
+        viewModel.getUsers()
     }
     
     private func setupNavbar () {
@@ -56,7 +48,7 @@ class UsersViewController: UIViewController {
     private func setupTableView () {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: cellId)
+        tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: viewModel.cellId)
     }
     
     private func setupSearchController () {
@@ -73,7 +65,7 @@ extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let story = UIStoryboard(name: "Posts", bundle: nil)
         let viewController = story.instantiateViewController(withIdentifier: "PostsViewController") as! PostsViewController
-        viewController.userViewModel = viewModel[indexPath.row]
+        viewController.viewModel.userView = viewModel.userView[indexPath.row]
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
@@ -82,7 +74,7 @@ extension UsersViewController: UITableViewDelegate {
 //MARK: - TableViewDataSource
 extension UsersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = !isFiltering ? viewModel.count : viewModelFiltered.count
+        let count = !isFiltering ? viewModel.userView.count : viewModel.userViewFiltered.count
         
         if count == 0 {
             tableView.setEmptyMessage("List is empty")
@@ -98,9 +90,9 @@ extension UsersViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! UserCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.cellId) as! UserCell
         
-        let user = !isFiltering ? viewModel[indexPath.row] : viewModelFiltered[indexPath.row]
+        let user = !isFiltering ? viewModel.userView[indexPath.row] : viewModel.userViewFiltered[indexPath.row]
         
         cell.nameLabel.text = user.name
         cell.phoneNumberLabel.text = user.phoneNumber

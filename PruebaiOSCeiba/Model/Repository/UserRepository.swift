@@ -17,8 +17,10 @@ typealias ModelCompletion = ( (_ response: ModelResponse<Any>) -> Void )
 
 class UserRepository {
     
+    let networkProvider = BaseService()
+    
     func getUsers (completion: @escaping ModelCompletion) {
-        BaseService.shared.sendRequest(endPoint: UserEndpoints.getUsers.rawValue) { (response) in
+        networkProvider.sendRequest(endPoint: UserEndpoints.getUsers.rawValue) { (response) in
             switch response {
             case .success(let result):
                 do {

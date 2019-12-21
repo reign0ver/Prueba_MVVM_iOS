@@ -18,7 +18,7 @@ extension UsersViewController {
     }
     
     func filterContentForSearchText(_ searchText: String) {
-        viewModelFiltered = viewModel.filter {
+        viewModel.userViewFiltered = viewModel.userView.filter {
             return $0.name.lowercased().contains(searchText.lowercased())
         }
         tableView.reloadData()

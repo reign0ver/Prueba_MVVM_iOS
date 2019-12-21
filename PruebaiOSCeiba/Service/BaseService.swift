@@ -18,8 +18,6 @@ typealias RequestCompletion = ( (_ response: ServiceResponse) -> Void )
 
 class BaseService {
     
-    static let shared = BaseService()
-    
     func sendRequest (endPoint: String, completion: @escaping RequestCompletion) {
         let session = URLSession(configuration: .default)
         var dataTask: URLSessionDataTask?
@@ -47,6 +45,10 @@ class BaseService {
             }
         }
         dataTask?.resume()
+    }
+    
+    func sendRequest2 (endPoint: String, completion: @escaping RequestCompletion) {
+        
     }
     
 }

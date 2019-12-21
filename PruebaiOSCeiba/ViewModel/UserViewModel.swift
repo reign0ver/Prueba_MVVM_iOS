@@ -8,7 +8,10 @@
 
 import Foundation
 
-struct UserViewModel {
+/*
+ Entity used to send it to the View
+ */
+struct UserView {
     let userId: Int
     let name: String
     let email: String
@@ -20,4 +23,38 @@ struct UserViewModel {
         self.email = user.email
         self.phoneNumber = user.phoneNumber
     }
+}
+
+protocol UserViewModelDelegate: class {
+    func reloadTable()
+}
+
+class UserViewModel {
+    
+    let cellId = "userCell"
+    var userView: [UserView] = []
+    var userViewFiltered: [UserView] = []
+    let repo = UserRepository()
+    weak var delegate: UserViewModelDelegate?
+    
+    func getUsers () {
+        repo.getUsers { (response) in
+            switch response {
+            case .success(let result):
+                let usersResult = result as! [User]
+                self.mapUsersIntoUsersView(usersResult: usersResult)
+                break
+            case .failure:
+                break
+            }
+            self.delegate?.reloadTable()
+        }
+    }
+    
+    func mapUsersIntoUsersView (usersResult: [User]) {
+        self.userView = usersResult.map {
+            return UserView(user: $0)
+        }
+    }
+    
 }
