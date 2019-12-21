@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		FB5C745123ADA19400775BA0 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5C744F23ADA19400775BA0 /* PostCell.swift */; };
 		FB5C745223ADA19400775BA0 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5C745023ADA19400775BA0 /* PostCell.xib */; };
-		FB5C745823AE825300775BA0 /* PruebaiOSCeiba.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB5C745623AE825300775BA0 /* PruebaiOSCeiba.xcdatamodeld */; };
-		FB5C745C23AE837400775BA0 /* UserPersistent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5C745A23AE837400775BA0 /* UserPersistent+CoreDataClass.swift */; };
-		FB5C745D23AE837400775BA0 /* UserPersistent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5C745B23AE837400775BA0 /* UserPersistent+CoreDataProperties.swift */; };
+		FB5C746A23AE906700775BA0 /* PruebaiOSCeiba.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB5C746823AE906700775BA0 /* PruebaiOSCeiba.xcdatamodeld */; };
+		FB5C747123AE910600775BA0 /* UserPersistent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5C746F23AE910600775BA0 /* UserPersistent+CoreDataClass.swift */; };
+		FB5C747223AE910600775BA0 /* UserPersistent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5C747023AE910600775BA0 /* UserPersistent+CoreDataProperties.swift */; };
 		FB776F0623ABC74B006BBA8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F0523ABC74B006BBA8E /* AppDelegate.swift */; };
 		FB776F0823ABC74B006BBA8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB776F0723ABC74B006BBA8E /* SceneDelegate.swift */; };
 		FB776F1223ABC756006BBA8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB776F1123ABC756006BBA8E /* Assets.xcassets */; };
@@ -57,9 +57,9 @@
 /* Begin PBXFileReference section */
 		FB5C744F23ADA19400775BA0 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		FB5C745023ADA19400775BA0 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
-		FB5C745723AE825300775BA0 /* PruebaiOSCeiba.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PruebaiOSCeiba.xcdatamodel; sourceTree = "<group>"; };
-		FB5C745A23AE837400775BA0 /* UserPersistent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserPersistent+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FB5C745B23AE837400775BA0 /* UserPersistent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserPersistent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FB5C746923AE906700775BA0 /* PruebaiOSCeiba.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PruebaiOSCeiba.xcdatamodel; sourceTree = "<group>"; };
+		FB5C746F23AE910600775BA0 /* UserPersistent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserPersistent+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FB5C747023AE910600775BA0 /* UserPersistent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserPersistent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FB776F0223ABC74B006BBA8E /* PruebaiOSCeiba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PruebaiOSCeiba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB776F0523ABC74B006BBA8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB776F0723ABC74B006BBA8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,8 +128,8 @@
 		FB5C745923AE835C00775BA0 /* PersistentModels */ = {
 			isa = PBXGroup;
 			children = (
-				FB5C745A23AE837400775BA0 /* UserPersistent+CoreDataClass.swift */,
-				FB5C745B23AE837400775BA0 /* UserPersistent+CoreDataProperties.swift */,
+				FB5C746F23AE910600775BA0 /* UserPersistent+CoreDataClass.swift */,
+				FB5C747023AE910600775BA0 /* UserPersistent+CoreDataProperties.swift */,
 			);
 			path = PersistentModels;
 			sourceTree = "<group>";
@@ -164,7 +164,7 @@
 				FB776F3A23ABF8EE006BBA8E /* ViewModel */,
 				FB776F3823ABF8D6006BBA8E /* View */,
 				FB776F1623ABC756006BBA8E /* Info.plist */,
-				FB5C745623AE825300775BA0 /* PruebaiOSCeiba.xcdatamodeld */,
+				FB5C746823AE906700775BA0 /* PruebaiOSCeiba.xcdatamodeld */,
 			);
 			path = PruebaiOSCeiba;
 			sourceTree = "<group>";
@@ -428,9 +428,9 @@
 			files = (
 				FB776F5D23AC9263006BBA8E /* UserRepository.swift in Sources */,
 				FB776F4523AC0B0B006BBA8E /* PostsViewController.swift in Sources */,
-				FB5C745C23AE837400775BA0 /* UserPersistent+CoreDataClass.swift in Sources */,
+				FB5C747123AE910600775BA0 /* UserPersistent+CoreDataClass.swift in Sources */,
 				FB776F5F23AC9749006BBA8E /* AppConstants.swift in Sources */,
-				FB5C745823AE825300775BA0 /* PruebaiOSCeiba.xcdatamodeld in Sources */,
+				FB5C746A23AE906700775BA0 /* PruebaiOSCeiba.xcdatamodeld in Sources */,
 				FB776F6523AD50E9006BBA8E /* UsersControllerHelper.swift in Sources */,
 				FB5C745123ADA19400775BA0 /* PostCell.swift in Sources */,
 				FB8F24A423AD79470032A600 /* PostRepository.swift in Sources */,
@@ -439,7 +439,7 @@
 				FB776F5323AC5D3B006BBA8E /* User.swift in Sources */,
 				FB776F0623ABC74B006BBA8E /* AppDelegate.swift in Sources */,
 				FB776F5B23AC728E006BBA8E /* EndPoints.swift in Sources */,
-				FB5C745D23AE837400775BA0 /* UserPersistent+CoreDataProperties.swift in Sources */,
+				FB5C747223AE910600775BA0 /* UserPersistent+CoreDataProperties.swift in Sources */,
 				FB776F6123AC98AB006BBA8E /* BaseService.swift in Sources */,
 				FB776F6323AD343F006BBA8E /* UserViewModel.swift in Sources */,
 				FB776F5823AC6D40006BBA8E /* Post.swift in Sources */,
@@ -768,12 +768,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FB5C745623AE825300775BA0 /* PruebaiOSCeiba.xcdatamodeld */ = {
+		FB5C746823AE906700775BA0 /* PruebaiOSCeiba.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FB5C745723AE825300775BA0 /* PruebaiOSCeiba.xcdatamodel */,
+				FB5C746923AE906700775BA0 /* PruebaiOSCeiba.xcdatamodel */,
 			);
-			currentVersion = FB5C745723AE825300775BA0 /* PruebaiOSCeiba.xcdatamodel */;
+			currentVersion = FB5C746923AE906700775BA0 /* PruebaiOSCeiba.xcdatamodel */;
 			path = PruebaiOSCeiba.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -20,6 +20,34 @@
                ReferencedContainer = "container:PruebaiOSCeiba.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FB776F1A23ABC757006BBA8E"
+               BuildableName = "PruebaiOSCeibaTests.xctest"
+               BlueprintName = "PruebaiOSCeibaTests"
+               ReferencedContainer = "container:PruebaiOSCeiba.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FB776F2523ABC757006BBA8E"
+               BuildableName = "PruebaiOSCeibaUITests.xctest"
+               BlueprintName = "PruebaiOSCeibaUITests"
+               ReferencedContainer = "container:PruebaiOSCeiba.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

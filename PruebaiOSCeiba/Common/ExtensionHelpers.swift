@@ -33,3 +33,23 @@ extension UITableView {
         self.dataSource = viewController as? UITableViewDataSource
     }
 }
+
+fileprivate var containerLoading: UIView?
+
+extension UIViewController {
+    func showLoading () {
+        containerLoading = UIView(frame: self.view.bounds)
+        containerLoading?.backgroundColor = .lightGray
+        
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.center = containerLoading!.center
+        activityIndicator.startAnimating()
+        containerLoading?.addSubview(activityIndicator)
+        self.view.addSubview(containerLoading!)
+    }
+    
+    func hideLoading () {
+        containerLoading?.removeFromSuperview()
+        containerLoading = nil
+    }
+}

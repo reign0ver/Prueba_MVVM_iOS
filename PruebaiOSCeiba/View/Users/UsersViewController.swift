@@ -11,6 +11,7 @@ import UIKit
 class UsersViewController: UIViewController, UserViewModelDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let viewModel = UserViewModel()
     let searchController = UISearchController()
@@ -29,11 +30,13 @@ class UsersViewController: UIViewController, UserViewModelDelegate {
     func reloadTable() {
         DispatchQueue.main.sync {
             tableView.reloadData()
+            self.hideLoading()
         }
     }
     
     private func loadUsers () {
-        viewModel.getUsers()
+        self.showLoading()
+        viewModel.validateIfData()
     }
     
     private func setupNavbar () {

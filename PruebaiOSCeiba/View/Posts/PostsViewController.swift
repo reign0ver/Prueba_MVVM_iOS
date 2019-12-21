@@ -32,10 +32,12 @@ class PostsViewController: UIViewController, PostViewModelDelegate {
     func reloadTable() {
         DispatchQueue.main.sync {
             self.tableView.reloadData()
+            self.hideLoading()
         }
     }
     
     private func loadUserPosts () {
+        self.showLoading()
         viewModel.getPostsByUser()
     }
     
@@ -50,10 +52,6 @@ class PostsViewController: UIViewController, PostViewModelDelegate {
 
 }
 
-extension PostsViewController: UITableViewDelegate {
-    //doSomething
-}
-
 extension PostsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.postView.count
@@ -64,13 +62,4 @@ extension PostsViewController: UITableViewDataSource {
         cell.configureCell(viewModel: viewModel, indexPath.row)
         return cell
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "User Posts"
-    }
-    
 }

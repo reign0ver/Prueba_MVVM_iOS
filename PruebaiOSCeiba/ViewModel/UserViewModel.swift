@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 /*
  Entity used to send it to the View
@@ -23,6 +25,13 @@ struct UserView {
         self.email = user.email
         self.phoneNumber = user.phoneNumber
     }
+    
+    init(userPersistent: UserPersistent) {
+        self.userId = Int(userPersistent.userId)
+        self.name = userPersistent.name ?? ""
+        self.email = userPersistent.email ?? ""
+        self.phoneNumber = userPersistent.phoneNumber ?? ""
+    }
 }
 
 protocol UserViewModelDelegate: class {
@@ -31,6 +40,7 @@ protocol UserViewModelDelegate: class {
 
 class UserViewModel {
     
+    // MARK: View Messages
     let cellId = "userCell"
     let navigationTitle = "Users"
     let emptyListMessage = "List is empty"
@@ -41,10 +51,11 @@ class UserViewModel {
     weak var delegate: UserViewModelDelegate?
     
     func getUsers () {
-        repo.getUsers { (response) in
+        repo.fetchUsersFromApi { (response) in
             switch response {
             case .success(let result):
                 let usersResult = result as! [User]
+                self.persistData(users: usersResult)
                 self.mapUsersIntoUsersView(usersResult: usersResult)
                 break
             case .failure:
@@ -54,10 +65,52 @@ class UserViewModel {
         }
     }
     
+    func persistData (users: [User]) {
+        let usersPersist: [UserPersistent] = mapUsersIntoUsersPersist(users: users)
+        repo.insertUserIntoLocalDB(userPersistent: usersPersist)
+    }
+    
+    //SRP failed here
+    func validateIfData () {
+        let usersFromDB = repo.fetchUsersFromLocalDB()
+        if usersFromDB.count > 0 {
+            mapUsersPersistIntoUsersView(usersPersistence: usersFromDB)
+            self.delegate?.reloadTable()
+        } else {
+            getUsers()
+        }
+    }
+    
+    func mapUsersPersistIntoUsersView (usersPersistence: [UserPersistent]) {
+        self.userView = usersPersistence.map {
+            return UserView(userPersistent: $0)
+        }
+    }
+    
     func mapUsersIntoUsersView (usersResult: [User]) {
         self.userView = usersResult.map {
             return UserView(user: $0)
         }
+    }
+    
+    func mapUsersIntoUsersPersist (users: [User]) -> [UserPersistent] {
+        var usersPersist: [UserPersistent] = []
+        var delegate: AppDelegate?
+        DispatchQueue.main.async {
+            delegate = UIApplication.shared.delegate as? AppDelegate
+        }
+        
+        if let context = delegate?.persistentContainer.viewContext {
+            let entity = NSEntityDescription.entity(forEntityName: "UserPersistent", in: context)
+            usersPersist = users.map { user in
+                let userP = UserPersistent(entity: entity!, insertInto: context)
+                userP.name = user.name
+                userP.email = user.email
+                userP.phoneNumber = user.phoneNumber
+                return userP
+            }
+        }
+        return usersPersist
     }
     
 }

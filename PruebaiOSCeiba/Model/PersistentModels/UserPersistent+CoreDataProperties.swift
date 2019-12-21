@@ -17,8 +17,9 @@ extension UserPersistent {
         return NSFetchRequest<UserPersistent>(entityName: "UserPersistent")
     }
 
-    @NSManaged public var email: String?
+    @NSManaged public var userId: Int16
     @NSManaged public var name: String?
-    @NSManaged public var userId: String?
+    @NSManaged public var email: String?
+    @NSManaged public var phoneNumber: String?
 
 }
