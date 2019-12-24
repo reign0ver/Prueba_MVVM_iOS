@@ -49,6 +49,7 @@ class UserViewModel {
     var userViewFiltered: [UserView] = []
     let repo = UserRepository()
     weak var delegate: UserViewModelDelegate?
+    var appDelegate: AppDelegate?
     
     func getUsers () {
         repo.fetchUsersFromApi { (response) in
@@ -95,12 +96,9 @@ class UserViewModel {
     
     func mapUsersIntoUsersPersist (users: [User]) -> [UserPersistent] {
         var usersPersist: [UserPersistent] = []
-        var delegate: AppDelegate?
-        DispatchQueue.main.async {
-            delegate = UIApplication.shared.delegate as? AppDelegate
-        }
+        appDelegate = UIApplication.shared.delegate as? AppDelegate
         
-        if let context = delegate?.persistentContainer.viewContext {
+        if let context = appDelegate?.persistentContainer.viewContext {
             let entity = NSEntityDescription.entity(forEntityName: "UserPersistent", in: context)
             usersPersist = users.map { user in
                 let userP = UserPersistent(entity: entity!, insertInto: context)

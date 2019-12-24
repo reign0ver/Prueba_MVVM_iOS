@@ -11,7 +11,6 @@ import UIKit
 class UsersViewController: UIViewController, UserViewModelDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let viewModel = UserViewModel()
     let searchController = UISearchController()
